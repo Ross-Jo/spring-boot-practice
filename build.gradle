@@ -21,17 +21,27 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.projectlombok:lombok')
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile('com.h2database:h2')
-    compile('org.springframework.boot:spring-boot-starter-mustache')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('com.h2database:h2')
+    implementation('org.springframework.boot:spring-boot-starter-mustache')
+    implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
+    implementation('org.springframework.session:spring-session-jdbc')
+    testImplementation('org.springframework.security:spring-security-test')
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+//        exclude module: 'junit'
+    }
+//    testImplementation('org.junit.jupiter:junit-jupiter-api:5.2.0')
+//    testCompile('org.junit.jupiter:junit-jupiter-params:5.2.0')
+//    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.2.0')
 }
 
-test {
-    useJUnitPlatform()
-}
+//test {
+//    useJUnitPlatform()
+//}
